@@ -139,7 +139,7 @@ if __name__ == '__main__':
     print("Stocks scraped: ")
     for symbol in symbols:
 
-        # request the stock's last 22 quarters financial data from API
+        # request the stock's last 22 quarters of financial data from API
         response = requests.get("https://api.polygon.io/v2/reference/financials/" + symbol +
                                 "?limit=22&type=Q&apiKey=treIjRq9AdkGpNHEdWce1jIBNFCFrHel")
 
@@ -203,10 +203,9 @@ if __name__ == '__main__':
 
                 # if currently on the most recent financial data, store sample in judgement sample
                 if i == 0:
-                    # store sample in dataframe
                     judge = judge.append(sample, ignore_index=True)
 
-                # else, calculate price_change, and store sample in the training/testing sample
+                # else, calculate change in price, and store sample in the training/testing sample
                 else:
                     # change in price (target feature)
                     try:
